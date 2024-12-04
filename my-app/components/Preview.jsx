@@ -1,11 +1,16 @@
 import Image from "next/image";
+import config from "@/app/assets/Config.json";
 
-function Preview() {
+function Preview({
+  color = "Sun Soaked",
+  interior = "white",
+  wheel = "SlipStream Black",
+}) {
   return (
     <>
       {/* Exterior Image */}
       <Image
-        src={"/images/aerostealth.jpeg"}
+        src={config[color].wheels[wheel]}
         width="0"
         height="0"
         sizes="100vw"
@@ -14,13 +19,15 @@ function Preview() {
       />
       {/* Description */}
       <div className="py-3">
-        <h3 className="font-bold text-xl text-blue-950">Metallic Gloss</h3>
+        <h3 className="font-bold text-xl text-blue-950">
+          {config[color].finish}
+        </h3>
         <p>A mysterious, seductive black with a metallic blue shimmer.</p>
       </div>
 
       {/* Interior Image */}
       <Image
-        src={"/images/dark.jpeg"}
+        src={`/images/interior/${interior}.jpeg`}
         width="0"
         height="0"
         sizes="100vw"
