@@ -1,60 +1,21 @@
 function Configurator({ exterior, interior, wheel, updateOptions }) {
   const exteriorSwatch = [
-    {
-      id: 0,
-      name: "Sun Soaked",
-      src: "/swatch/sun_soaked.png",
-    },
-    {
-      id: 1,
-      name: "Sea Grass",
-      src: "/swatch/sea_grass.png",
-    },
-    {
-      id: 2,
-      name: "black_Pearl",
-      src: "/swatch/black_pearl.png",
-    },
-    {
-      id: 3,
-      name: "Red Planet",
-      src: "/swatch/red_planet.png",
-    },
-    {
-      id: 4,
-      name: "Stealth Green",
-      src: "/swatch/stealth_green.png",
-    },
-    {
-      id: 5,
-      name: "Blue Planet",
-      src: "/swatch/blue_planet.png",
-    },
+    { id: 0, name: "Sun Soaked", src: "/swatch/sun_soaked.png" },
+    { id: 1, name: "Sea Grass", src: "/swatch/sea_grass.png" },
+    { id: 2, name: "Black Pearl", src: "/swatch/black_pearl.png" },
+    { id: 3, name: "Red Planet", src: "/swatch/red_planet.png" },
+    { id: 4, name: "Stealth Green", src: "/swatch/stealth_green.png" },
+    { id: 5, name: "Blue Planet", src: "/swatch/blue_planet.png" },
   ];
 
   const interiorSwatch = [
-    {
-      id: 0,
-      name: "dark",
-      src: "/swatch/interior/dark.png",
-    },
-    {
-      id: 1,
-      name: "white",
-      src: "/swatch/interior/light.png",
-    },
+    { id: 0, name: "dark", src: "/swatch/interior/dark.png" },
+    { id: 1, name: "white", src: "/swatch/interior/light.png" },
   ];
+
   const wheels = [
-    {
-      id: 0,
-      name: "SlipStream Black",
-      src: "/wheels/wheel1.png",
-    },
-    {
-      id: 1,
-      name: "Vortex",
-      src: "/wheels/wheel2.png",
-    },
+    { id: 0, name: "SlipStream Black", src: "/wheels/wheel1.png" },
+    { id: 1, name: "Vortex", src: "/wheels/wheel2.png" },
   ];
 
   return (
@@ -65,24 +26,28 @@ function Configurator({ exterior, interior, wheel, updateOptions }) {
       </h1>
       <p className="py-2 text-xl">
         Configure your very own, with the options to choose from 6 exterior, 2
-        interior and 3 wheels options.
+        interior, and 3 wheel options.
       </p>
 
       {/* Exterior Colors */}
       <div className="my-3">
         <h3 className="font-bold uppercase mb-3">Exterior Color</h3>
         <div className="flex gap-2">
-          {exteriorSwatch.map((exterior) => (
+          {exteriorSwatch.map((exteriorOption) => (
             <button
-              key={exterior.id}
-              onClick={() => updateOptions("exterior", exterior.name)}
-              className={`hover:scale-105 transition-transform duration-100  ${
-                exterior === exterior.name
+              key={exteriorOption.id}
+              onClick={() => updateOptions("exterior", exteriorOption.name)}
+              className={`hover:scale-105 transition-transform duration-100 ${
+                exteriorOption.name === exterior
                   ? "border-2 border-blue-300 rounded-full"
                   : ""
               }`}
             >
-              <img src={exterior.src} alt="Black Pearl" className="w-12" />
+              <img
+                src={exteriorOption.src}
+                alt={exteriorOption.name}
+                className="w-12"
+              />
             </button>
           ))}
         </div>
@@ -96,13 +61,13 @@ function Configurator({ exterior, interior, wheel, updateOptions }) {
             <button
               key={color.id}
               onClick={() => updateOptions("interior", color.name)}
-              className={`hover:scale-105 transition-transform duration-100  ${
+              className={`hover:scale-105 transition-transform duration-100 ${
                 color.name === interior
                   ? "border-2 border-blue-300 rounded-full"
                   : ""
               }`}
             >
-              <img src={color.src} alt="Black Pearl" className="w-12" />
+              <img src={color.src} alt={color.name} className="w-12" />
             </button>
           ))}
         </div>
@@ -112,17 +77,21 @@ function Configurator({ exterior, interior, wheel, updateOptions }) {
       <div className="my-3">
         <h3 className="font-bold uppercase mb-3">Wheel Options</h3>
         <div className="flex gap-2">
-          {wheels.map((wheel) => (
+          {wheels.map((wheelOption) => (
             <button
-              key={wheel.id}
-              onClick={() => updateOptions("wheel", wheel.name)}
-              className={`hover:scale-105 transition-transform duration-100  ${
-                wheel.name === wheel
+              key={wheelOption.id}
+              onClick={() => updateOptions("wheel", wheelOption.name)}
+              className={`hover:scale-105 transition-transform duration-100 ${
+                wheelOption.name === wheel
                   ? "border-2 border-blue-300 rounded-full"
                   : ""
               }`}
             >
-              <img src={wheel.src} alt="Black Pearl" className="w-20" />
+              <img
+                src={wheelOption.src}
+                alt={wheelOption.name}
+                className="w-20"
+              />
             </button>
           ))}
         </div>
