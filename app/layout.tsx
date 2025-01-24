@@ -6,16 +6,15 @@ export const metadata = {
   keywords: "fisker, ocean, nextjs, tailwind, configurator",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/hk-grotesk.min.css"
-        />
+        <meta name="keywords" content="fisker, ocean, nextjs, tailwind, configurator" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
